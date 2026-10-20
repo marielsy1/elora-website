@@ -1,0 +1,629 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Elora Resort | Your Private Getaway</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #253839;
+  background: #fff;
+  line-height: 1.6;
+}
+
+header {
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,.08);
+}
+
+nav {
+  max-width: 1250px;
+  margin: auto;
+  padding: 23px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+}
+
+.logo {
+  color: #172b2b;
+  text-decoration: none;
+  font-size: 23px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.menu {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.menu a {
+  color: #253333;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.menu a:hover {
+  color: #08796d;
+}
+
+.hero {
+  min-height: 640px;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0,27,34,.86),
+      rgba(0,35,43,.24)
+    ),
+    url("https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1800&q=85")
+    center / cover no-repeat;
+  color: white;
+}
+
+.hero-content {
+  max-width: 1180px;
+  width: 90%;
+  margin: auto;
+  padding: 80px 0;
+}
+
+.welcome {
+  letter-spacing: 5px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.hero h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(43px, 6vw, 72px);
+  margin: 12px 0;
+  line-height: 1.15;
+}
+
+.hero h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: normal;
+  margin-bottom: 18px;
+}
+
+.hero p.description {
+  max-width: 700px;
+  line-height: 1.9;
+  font-size: 16px;
+}
+
+.buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.btn {
+  padding: 14px 26px;
+  border-radius: 35px;
+  border: 2px solid white;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  transition: .2s;
+}
+
+.btn-primary {
+  background: #087669;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  background: #087669;
+}
+
+section {
+  padding: 85px 24px;
+}
+
+.container {
+  max-width: 1150px;
+  margin: auto;
+}
+
+.section-title {
+  font-family: Georgia, serif;
+  font-size: clamp(30px, 4vw, 42px);
+  text-align: center;
+  margin-bottom: 20px;
+  color: #193d3b;
+}
+
+.section-subtitle {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 35px;
+  color: #596c6b;
+}
+
+.about {
+  background: #f3f7f5;
+}
+
+.about p {
+  max-width: 820px;
+  margin: auto;
+  text-align: center;
+  font-size: 17px;
+  line-height: 2;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 265px;
+  object-fit: cover;
+  border-radius: 13px;
+  display: block;
+}
+
+.packages {
+  background: #f3f7f5;
+}
+
+.package-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.package-card {
+  padding: 38px 30px;
+  border-radius: 16px;
+  background: white;
+  text-align: center;
+  box-shadow: 0 5px 25px rgba(0,0,0,.06);
+}
+
+.package-card h3 {
+  font-size: 23px;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 43px;
+  font-weight: bold;
+  color: #087669;
+  margin: 12px 0;
+}
+
+.package-card p {
+  margin-bottom: 15px;
+}
+
+.package-card ul {
+  list-style: none;
+  line-height: 2.2;
+  margin: 20px 0;
+}
+
+.package-card a {
+  display: inline-block;
+  padding: 13px 27px;
+  border-radius: 30px;
+  color: white;
+  background: #087669;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.note {
+  text-align: center;
+  font-size: 13px;
+  color: #687878;
+  margin-top: 25px;
+}
+
+.booking {
+  background: #edf5f2;
+}
+
+.booking-form {
+  max-width: 650px;
+  margin: 35px auto 0;
+  background: white;
+  border-radius: 18px;
+  padding: 38px;
+  box-shadow: 0 8px 30px rgba(0,0,0,.07);
+}
+
+.booking-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #cbd7d3;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font: inherit;
+  background: white;
+}
+
+.booking-form button {
+  width: 100%;
+  border: none;
+  background: #087669;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.booking-form button:hover {
+  background: #075b52;
+}
+
+.contact {
+  text-align: center;
+}
+
+.contact p {
+  max-width: 750px;
+  margin: 15px auto;
+  line-height: 1.9;
+}
+
+footer {
+  background: #173a39;
+  color: white;
+  padding: 28px;
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  nav {
+    flex-direction: column;
+    padding: 18px;
+  }
+
+  .menu {
+    justify-content: center;
+    gap: 12px 18px;
+  }
+
+  .hero {
+    min-height: 560px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .package-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content {
+    width: 88%;
+  }
+
+  .booking-form {
+    padding: 22px;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<header>
+  <nav>
+    <a href="#home" class="logo">The Elora Resort</a>
+
+    <div class="menu">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#packages">Packages</a>
+      <a href="#book">Book Now</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<!-- HOME -->
+<div class="hero" id="home">
+  <div class="hero-content">
+    <p class="welcome">WELCOME TO</p>
+
+    <h1>The Elora Resort</h1>
+
+    <h2>Your Private Getaway for Any Occasion</h2>
+
+    <p class="description">
+      A relaxing private resort with a swimming pool,
+      function hall, spacious rooms, and complete
+      facilities — perfect for family gatherings,
+      birthdays, celebrations, and special events.
+    </p>
+
+    <div class="buttons">
+      <a href="#book" class="btn btn-primary">
+        Book Now →
+      </a>
+
+      <a href="#gallery" class="btn">
+        View Gallery
+      </a>
+
+      <a href="#packages" class="btn">
+        View Packages
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <h2 class="section-title">About The Elora Resort</h2>
+
+    <p>
+      Welcome to The Elora Resort, a private getaway
+      designed for relaxation and unforgettable
+      celebrations. Whether you are planning a family
+      gathering, birthday, reunion, or special event,
+      our resort provides a peaceful and comfortable
+      environment for everyone.
+
+      Enjoy our swimming pool, function hall, and
+      comfortable rooms included in our resort package.
+    </p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <h2 class="section-title">Our Gallery</h2>
+
+    <p class="section-subtitle">
+      Explore a glimpse of your relaxing getaway.
+    </p>
+
+    <div class="gallery-grid">
+      <img
+        src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=900"
+        alt="Swimming pool">
+
+      <img
+        src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900"
+        alt="Resort exterior">
+
+      <img
+        src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=900"
+        alt="Comfortable room">
+
+      <img
+        src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=900"
+        alt="Resort poolside">
+
+      <img
+        src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=900"
+        alt="Resort bedroom">
+
+      <img
+        src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=900"
+        alt="Resort surroundings">
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="packages" id="packages">
+  <div class="container">
+    <h2 class="section-title">Our Packages</h2>
+
+    <p class="section-subtitle">
+      Choose the package that suits your special occasion.
+    </p>
+
+    <div class="package-grid">
+
+      <div class="package-card">
+        <h3>Weekday Package</h3>
+        <p>Monday – Thursday</p>
+
+        <div class="price">₱8,000</div>
+
+        <ul>
+          <li>✓ Exclusive Resort Access</li>
+          <li>✓ Swimming Pool</li>
+          <li>✓ Function Hall</li>
+          <li>✓ Room Included</li>
+        </ul>
+
+        <a href="#book">Book Now</a>
+      </div>
+
+      <div class="package-card">
+        <h3>Weekend Package</h3>
+        <p>Friday – Sunday</p>
+
+        <div class="price">₱12,000</div>
+
+        <ul>
+          <li>✓ Exclusive Resort Access</li>
+          <li>✓ Swimming Pool</li>
+          <li>✓ Function Hall</li>
+          <li>✓ Room Included</li>
+        </ul>
+
+        <a href="#book">Book Now</a>
+      </div>
+
+    </div>
+
+    <p class="note">
+      Package rates are for demonstration purposes.
+    </p>
+  </div>
+</section>
+
+<!-- BOOK NOW -->
+<section class="booking" id="book">
+  <div class="container">
+    <h2 class="section-title">Book Your Stay</h2>
+
+    <p class="section-subtitle">
+      Complete the form below to preview the booking process.
+    </p>
+
+    <form class="booking-form" id="bookingForm">
+
+      <label for="guestName">Full Name</label>
+      <input
+        id="guestName"
+        type="text"
+        placeholder="Enter your full name"
+        required>
+
+      <label for="email">Email Address</label>
+      <input
+        id="email"
+        type="email"
+        placeholder="Enter your email"
+        required>
+
+      <label for="phone">Contact Number</label>
+      <input
+        id="phone"
+        type="tel"
+        placeholder="Enter your contact number"
+        required>
+
+      <label for="date">Booking Date</label>
+      <input
+        id="date"
+        type="date"
+        required>
+
+      <label for="guests">Number of Guests</label>
+      <select id="guests" required>
+        <option value="">Select number of guests</option>
+        <option>1 - 10 Guests</option>
+        <option>11 - 20 Guests</option>
+        <option>21 - 30 Guests</option>
+        <option>31+ Guests</option>
+      </select>
+
+      <label for="request">Special Request</label>
+      <textarea
+        id="request"
+        rows="4"
+        placeholder="Enter your special request (optional)">
+      </textarea>
+
+      <button type="submit">Submit Booking</button>
+
+      <p class="note">
+        Demo only. This form does not save or send
+        personal information or create a reservation.
+      </p>
+    </form>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <h2 class="section-title">Contact Us</h2>
+
+    <p>
+      Have questions about The Elora Resort?
+      Get in touch with the resort for inquiries,
+      available dates, and reservation information.
+    </p>
+
+    <p>
+      Thank you for visiting The Elora Resort!
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 The Elora Resort. All Rights Reserved.</p>
+  <p>Static Website Demonstration</p>
+</footer>
+
+<script>
+document.getElementById("bookingForm")
+  .addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    alert(
+      "This is a demonstration website only. " +
+      "No booking has been submitted or saved."
+    );
+  });
+
+const dateInput = document.getElementById("date");
+const today = new Date();
+const localToday = new Date(
+  today.getTime() - today.getTimezoneOffset() * 60000
+).toISOString().split("T")[0];
+
+dateInput.min = localToday;
+</script>
+
+</body>
+</html>
